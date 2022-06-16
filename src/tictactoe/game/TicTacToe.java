@@ -135,4 +135,8 @@ public class TicTacToe {
 		
         return false;
     }
+    
+    public char getMark() {
+        return currentPlayerMark;
+    }
 }

@@ -18,7 +18,7 @@ public class GameBoard extends JFrame
 {
 private final int WINDOW_WIDTH = 1000; // Window width
 private final int WINDOW_HEIGHT = 600; // Window height
-
+TicTacToe game = new TicTacToe();
 /**
 Constructor
 */
@@ -61,7 +61,9 @@ button1.addActionListener(new gameAction());
 button15.addActionListener(new quitAction());
 button1.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            button1.setText("Ok Button is clicked here");
+            char mark = game.getMark();
+            button1.setText(mark + "");
+            game.changePlayer();
          }});
 // Add the six buttons to the content pane.
 add(button1); // Goes into row 1, column 1
