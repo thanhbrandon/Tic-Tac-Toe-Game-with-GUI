@@ -4,6 +4,8 @@
  */
 package tictactoe.game;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -70,8 +72,17 @@ public class TicTacToe {
 	
     // Returns true if there is a win, false otherwise.
     // This calls our other win check functions to check the entire board.
-    public boolean checkForWin() {
-        return (checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin());
+    public void checkForWin() {
+        if (checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin()) {
+           System.out.println("We have a winner! Congrats!");
+           JOptionPane.showMessageDialog( null, "We have a winner! Congrats!");
+           System.exit(0);
+        }
+        else if (this.isBoardFull()) {
+           System.out.println("Appears we have a draw!");
+           System.exit(0);
+        }
+
     }
 	
 	

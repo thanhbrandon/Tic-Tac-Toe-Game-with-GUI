@@ -63,6 +63,66 @@ button1.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             char mark = game.getMark();
             button1.setText(mark + "");
+            game.placeMark(0,0);
+            game.checkForWin();
+            game.changePlayer();
+         }});
+button2.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            char mark = game.getMark();
+            button2.setText(mark + "");
+            game.placeMark(0,1);
+            game.checkForWin();
+            game.changePlayer();
+         }});
+button3.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            char mark = game.getMark();
+            button3.setText(mark + "");
+            game.placeMark(0,3);
+            game.checkForWin();
+            game.changePlayer();
+         }});
+button6.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            char mark = game.getMark();
+            button6.setText(mark + "");
+            game.checkForWin();
+            game.changePlayer();
+         }});
+button7.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            char mark = game.getMark();
+            button7.setText(mark + "");
+            game.checkForWin();
+            game.changePlayer();
+         }});
+button8.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            char mark = game.getMark();
+            button8.setText(mark + "");
+            game.checkForWin();
+            game.changePlayer();
+         }});
+button11.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            char mark = game.getMark();
+            button11.setText(mark + "");
+            game.checkForWin();
+            game.changePlayer();
+         }});
+button12.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            char mark = game.getMark();
+            button12.setText(mark + "");
+            game.checkForWin();
+            game.changePlayer();
+         }});
+button13.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            char mark = game.getMark();
+            button13.setText(mark + "");
+            game.checkForWin();
             game.changePlayer();
          }});
 // Add the six buttons to the content pane.
@@ -116,7 +176,8 @@ clicks on the Calculate button.
     {
         String actionCommand = e.getActionCommand();
         if (actionCommand.equals("Button 1")){
-            
+            game.checkForWin();
+            game.printBoard();
         }
     }
 }
