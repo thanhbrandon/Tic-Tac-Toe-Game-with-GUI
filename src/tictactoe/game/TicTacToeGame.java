@@ -26,7 +26,7 @@ public class TicTacToeGame {
 
         // Player 'x' places a mark in the top right corner row 0, column 2
         // These values are based on a zero index array, so you may need to simply take in a row 1 and subtract 1 from it if you want that.
-        game.placeMark(0,2);
+        //game.placeMark(0,2);
         // Lets print the board
         game.printBoard();
 

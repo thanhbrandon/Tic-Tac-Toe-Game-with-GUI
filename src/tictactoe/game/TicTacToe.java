@@ -82,7 +82,9 @@ public class TicTacToe {
            System.out.println("Appears we have a draw!");
            System.exit(0);
         }
-
+        //JOptionPane.showMessageDialog( null, (checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin()));
+        //JOptionPane.showMessageDialog( null, (this.isBoardFull()));
+        //JOptionPane.showMessageDialog( null, board[0][0] + board[0][1] + board[0][2]);
     }
 	
 	

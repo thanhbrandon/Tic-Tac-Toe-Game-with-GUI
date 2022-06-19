@@ -39,25 +39,25 @@ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 setLayout(new GridLayout(3, 5));
 
 // Create six buttons.
-JButton button1 = new JButton("Button 1");
-JButton button2 = new JButton("Button 2");
-JButton button3 = new JButton("Button 3");
+JButton button1 = new JButton("");
+JButton button2 = new JButton("");
+JButton button3 = new JButton("");
 JLabel label4 = new JLabel("Player X");
 JLabel label5 = new JLabel("Score");
-JButton button6 = new JButton("Button 6");
-JButton button7 = new JButton("Button 7");
-JButton button8 = new JButton("Button 8");
+JButton button6 = new JButton("");
+JButton button7 = new JButton("");
+JButton button8 = new JButton("");
 JLabel label9 = new JLabel("Player O");
 JLabel label10 = new JLabel("Score");
-JButton button11 = new JButton("Button 11");
-JButton button12 = new JButton("Button 12");
-JButton button13 = new JButton("Button 13");
+JButton button11 = new JButton("");
+JButton button12 = new JButton("");
+JButton button13 = new JButton("");
 JButton button14 = new JButton("Reset");
 JButton button15 = new JButton("Exit");
 
 
 // Add button functionality
-button1.addActionListener(new gameAction());
+button14.addActionListener(new resetAction());
 button15.addActionListener(new quitAction());
 button1.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
@@ -79,7 +79,7 @@ button3.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             char mark = game.getMark();
             button3.setText(mark + "");
-            game.placeMark(0,3);
+            game.placeMark(0,2);
             game.checkForWin();
             game.changePlayer();
          }});
@@ -87,6 +87,7 @@ button6.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             char mark = game.getMark();
             button6.setText(mark + "");
+            game.placeMark(1,0);
             game.checkForWin();
             game.changePlayer();
          }});
@@ -94,6 +95,7 @@ button7.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             char mark = game.getMark();
             button7.setText(mark + "");
+            game.placeMark(1,1);
             game.checkForWin();
             game.changePlayer();
          }});
@@ -101,6 +103,7 @@ button8.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             char mark = game.getMark();
             button8.setText(mark + "");
+            game.placeMark(1,2);
             game.checkForWin();
             game.changePlayer();
          }});
@@ -108,6 +111,7 @@ button11.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             char mark = game.getMark();
             button11.setText(mark + "");
+            game.placeMark(2,0);
             game.checkForWin();
             game.changePlayer();
          }});
@@ -115,6 +119,7 @@ button12.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             char mark = game.getMark();
             button12.setText(mark + "");
+            game.placeMark(2,1);
             game.checkForWin();
             game.changePlayer();
          }});
@@ -122,6 +127,7 @@ button13.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             char mark = game.getMark();
             button13.setText(mark + "");
+            game.placeMark(2,2);
             game.checkForWin();
             game.changePlayer();
          }});
@@ -175,7 +181,7 @@ clicks on the Calculate button.
     public void actionPerformed(ActionEvent e )
     {
         String actionCommand = e.getActionCommand();
-        if (actionCommand.equals("Button 1")){
+        if (actionCommand.equals("Reset")){
             game.checkForWin();
             game.printBoard();
         }
