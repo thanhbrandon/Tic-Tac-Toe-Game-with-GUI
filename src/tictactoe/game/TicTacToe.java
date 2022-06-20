@@ -16,6 +16,8 @@ public class TicTacToe {
 
     private char[][] board; 
     private char currentPlayerMark;
+    private int xScore = 0;
+    private int oScore = 0;
 			
     public TicTacToe() {
         board = new char[3][3];
@@ -72,15 +74,24 @@ public class TicTacToe {
 	
     // Returns true if there is a win, false otherwise.
     // This calls our other win check functions to check the entire board.
-    public void checkForWin() {
+    public boolean checkForWin() {
         if (checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin()) {
            System.out.println("We have a winner! Congrats!");
            JOptionPane.showMessageDialog( null, "We have a winner! Congrats!");
-           System.exit(0);
+           if (currentPlayerMark == 'x'){
+               xScore++;
+               return true;
+           } else {
+               oScore++;
+               return true;
+           }
         }
         else if (this.isBoardFull()) {
-           System.out.println("Appears we have a draw!");
-           System.exit(0);
+           JOptionPane.showMessageDialog( null, "Appears we have a draw!");
+           return true;
+        }
+        else {
+            return false;
         }
         //JOptionPane.showMessageDialog( null, (checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin()));
         //JOptionPane.showMessageDialog( null, (this.isBoardFull()));
@@ -151,5 +162,13 @@ public class TicTacToe {
     
     public char getMark() {
         return currentPlayerMark;
+    }
+    
+    public int getxScore() {
+        return xScore;
+    }
+    
+    public int getoScore() {
+        return oScore;
     }
 }

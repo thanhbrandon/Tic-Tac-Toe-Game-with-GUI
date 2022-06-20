@@ -56,79 +56,110 @@ JButton button14 = new JButton("Reset");
 JButton button15 = new JButton("Exit");
 
 
+
 // Add button functionality
-button14.addActionListener(new resetAction());
+button14.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
+         }});
 button15.addActionListener(new quitAction());
 button1.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+            button1.setEnabled(false);
             char mark = game.getMark();
             button1.setText(mark + "");
             game.placeMark(0,0);
-            game.checkForWin();
+            if (game.checkForWin() == true){
+                reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
+            };
             game.changePlayer();
          }});
 button2.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+            button2.setEnabled(false);
             char mark = game.getMark();
             button2.setText(mark + "");
             game.placeMark(0,1);
-            game.checkForWin();
+            if (game.checkForWin() == true){
+                reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
+            };
             game.changePlayer();
          }});
 button3.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+            button3.setEnabled(false);
             char mark = game.getMark();
             button3.setText(mark + "");
             game.placeMark(0,2);
-            game.checkForWin();
+            if (game.checkForWin() == true){
+                reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
+            };
             game.changePlayer();
          }});
 button6.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+            button6.setEnabled(false);
             char mark = game.getMark();
             button6.setText(mark + "");
             game.placeMark(1,0);
-            game.checkForWin();
+            if (game.checkForWin() == true){
+                reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
+            };
             game.changePlayer();
          }});
 button7.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+            button7.setEnabled(false);
             char mark = game.getMark();
             button7.setText(mark + "");
             game.placeMark(1,1);
-            game.checkForWin();
+            if (game.checkForWin() == true){
+                reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
+            };
             game.changePlayer();
          }});
 button8.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+            button8.setEnabled(false);
             char mark = game.getMark();
             button8.setText(mark + "");
             game.placeMark(1,2);
-            game.checkForWin();
+            if (game.checkForWin() == true){
+                reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
+            };
             game.changePlayer();
          }});
 button11.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+            button11.setEnabled(false);
             char mark = game.getMark();
             button11.setText(mark + "");
             game.placeMark(2,0);
-            game.checkForWin();
+            if (game.checkForWin() == true){
+                reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
+            };
             game.changePlayer();
          }});
 button12.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+            button12.setEnabled(false);
             char mark = game.getMark();
             button12.setText(mark + "");
             game.placeMark(2,1);
-            game.checkForWin();
+            if (game.checkForWin() == true){
+                reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
+            };
             game.changePlayer();
          }});
 button13.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+            button13.setEnabled(false);
             char mark = game.getMark();
             button13.setText(mark + "");
             game.placeMark(2,2);
-            game.checkForWin();
+            if (game.checkForWin() == true){
+                reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
+            };
             game.changePlayer();
          }});
 // Add the six buttons to the content pane.
@@ -154,38 +185,33 @@ add(button15); // Goes into row 2, column 3
 setVisible(true);
 }
 boolean currentPlayer = true;
-private class gameAction implements ActionListener
-{
-/**
-The actionPerformed method executes when the user
-clicks on the Calculate button.
-@param e The event object.
-*/
 
-    public void actionPerformed(ActionEvent e )
-    {
-        String actionCommand = e.getActionCommand();
-        if (actionCommand.equals("Button 1")){
-            
-        }
-    }
-}
-private class resetAction implements ActionListener
-{
-/**
-The actionPerformed method executes when the user
-clicks on the Calculate button.
-@param e The event object.
-*/
-
-    public void actionPerformed(ActionEvent e )
-    {
-        String actionCommand = e.getActionCommand();
-        if (actionCommand.equals("Reset")){
-            game.checkForWin();
-            game.printBoard();
-        }
-    }
+//JButton label5, JButton label10, JButton button1,JButton button2,JButton button3 ,JButton button6, JButton button7, JButton button8,JButton button11,JButton button12,  JButton button13
+public void reset(JLabel label5, JLabel label10, JButton button1,JButton button2,JButton button3 ,
+        JButton button6, JButton button7, JButton button8,JButton button11,JButton button12,  JButton button13) {
+    label5.setText(game.getxScore() + "");
+    label10.setText(game.getoScore() + "");
+    game.printBoard();
+    game.initializeBoard();
+    button1.setText("");
+    button2.setText("");
+    button3.setText("");
+    button6.setText("");
+    button7.setText("");
+    button8.setText("");
+    button11.setText("");
+    button12.setText("");
+    button13.setText("");
+    
+    button1.setEnabled(true);
+    button2.setEnabled(true);
+    button3.setEnabled(true);
+    button6.setEnabled(true);
+    button7.setEnabled(true);
+    button8.setEnabled(true);
+    button11.setEnabled(true);
+    button12.setEnabled(true);
+    button13.setEnabled(true);
 }
 private class quitAction implements ActionListener
 {
