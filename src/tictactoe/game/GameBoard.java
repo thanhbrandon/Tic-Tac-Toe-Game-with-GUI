@@ -38,7 +38,7 @@ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 // Add a GridLayout manager to the content pane.
 setLayout(new GridLayout(3, 5));
 
-// Create six buttons.
+// Create 11 buttons and 4 labels.
 JButton button1 = new JButton("");
 JButton button2 = new JButton("");
 JButton button3 = new JButton("");
@@ -57,22 +57,23 @@ JButton button15 = new JButton("Exit");
 
 
 
-// Add button functionality
+// Add button functionality to each button
 button14.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
+             // Calls the reset method to clear the board
             reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
          }});
-button15.addActionListener(new quitAction());
+button15.addActionListener(new quitAction()); // Calls the quitAction Method when this button is pressed
 button1.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            button1.setEnabled(false);
-            char mark = game.getMark();
-            button1.setText(mark + "");
-            game.placeMark(0,0);
-            if (game.checkForWin() == true){
+            button1.setEnabled(false); // Makes the button unpressable when pressed once
+            char mark = game.getMark(); // Gets the player mark
+            button1.setText(mark + ""); // Marks the button with an X or O
+            game.placeMark(0,0); // Places the mark into the array that checks if there is a winner
+            if (game.checkForWin() == true){ // Checks if there is a winner if there is the board is reset
                 reset(label5, label10, button1, button2, button3 , button6,  button7,  button8, button11, button12,   button13);
             };
-            game.changePlayer();
+            game.changePlayer(); // Changes the Player mark to the other player mark
          }});
 button2.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
@@ -162,7 +163,7 @@ button13.addActionListener(new ActionListener() {
             };
             game.changePlayer();
          }});
-// Add the six buttons to the content pane.
+// Add the 11 buttons and 4 labels to the content pane.
 add(button1); // Goes into row 1, column 1
 add(button2); // Goes into row 1, column 2
 add(button3); // Goes into row 1, column 3
@@ -189,10 +190,15 @@ boolean currentPlayer = true;
 //JButton label5, JButton label10, JButton button1,JButton button2,JButton button3 ,JButton button6, JButton button7, JButton button8,JButton button11,JButton button12,  JButton button13
 public void reset(JLabel label5, JLabel label10, JButton button1,JButton button2,JButton button3 ,
         JButton button6, JButton button7, JButton button8,JButton button11,JButton button12,  JButton button13) {
-    label5.setText(game.getxScore() + "");
-    label10.setText(game.getoScore() + "");
+    
     game.printBoard();
     game.initializeBoard();
+    
+    // Updates the scoreboard
+    label5.setText(game.getxScore() + "");
+    label10.setText(game.getoScore() + "");
+    
+    // Clears the current marks on the buttons
     button1.setText("");
     button2.setText("");
     button3.setText("");
@@ -203,6 +209,7 @@ public void reset(JLabel label5, JLabel label10, JButton button1,JButton button2
     button12.setText("");
     button13.setText("");
     
+    // Makes all the buttons pressable again
     button1.setEnabled(true);
     button2.setEnabled(true);
     button3.setEnabled(true);
@@ -223,6 +230,7 @@ clicks on the Calculate button.
 
     public void actionPerformed(ActionEvent e )
     {
+        // Closes the program
         System.exit(0);
     }
 }
